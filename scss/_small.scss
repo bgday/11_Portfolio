@@ -1,0 +1,261 @@
+/* prevent font size adjustments after orientation changes */
+html {
+  -moz-textsize-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+/* apply natural box model to all elements */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  font-family: $defaultFont;
+  font-weight: $normalWeight;
+  color: $fontColor;
+}
+
+//header
+
+#headerWrapper {
+  color: $secondaryColor;
+}
+
+header {
+  background-color: $primaryColor;
+  display: grid;
+  grid-template-columns: 60px auto 44px;
+  column-gap: $gutter;
+  align-items: center;
+  padding: 1.5rem;
+  span {
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+    a {
+      font-size: 1rem;
+      padding-top: 50px;
+      color: $secondaryColor;
+      text-decoration: none;
+    }
+  }
+}
+
+// nav
+
+div#navWrapper {
+  z-index: 5;
+  position: sticky;
+  top: 0;
+  background-color: $menuColor;
+  nav {
+    width: 100%;
+    ul#primaryNav {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      li.active {
+        background-color: darken($menuColor, 5%);
+      }
+      li {
+        justify-content: center;
+        flex-grow: 1;
+        list-style-type: none;
+        display: grid;
+        background-color: $menuColor;
+        grid-template-areas:
+          "number"
+          "span";
+        &:hover {
+          background-color: lighten($menuColor, 5%);
+        }
+        a {
+          display: block;
+          padding: 1rem;
+          text-decoration: none;
+          color: black;
+          img {
+            width: 25px;
+            height: auto;
+            grid-area: number;
+          }
+          span {
+            display: none;
+            grid-area: span;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+// main
+
+section {
+  background-color: $secondaryColor;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  &.even {
+    background-color: darken($secondaryColor, 5%);
+  }
+  &#one {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  div {
+    h3 {
+      text-align: center;
+    }
+    width: 100%;
+    &#likes,
+    #skills {
+      display: grid;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      grid-template-columns: 1fr 1fr;
+      figure {
+        width: 40%;
+        img {
+          margin-bottom: 1rem;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    &#form {
+      h2 {
+        margin-bottom:1rem;
+      }
+      padding:0 auto;
+      form label,input {
+        display: block;
+        width:100%;
+        &#request {
+          height: 200px;
+        }
+      }
+      input {
+        margin-bottom:1rem;
+        margin-top:.25rem;
+        border-radius: 5px;
+        height:44px;
+        border:1px solid $primaryColor;
+        &[type=submit] {
+          background-color: $primaryColor;
+          color:$secondaryColor;
+          border:none;
+        }
+      }
+      textarea {
+        @extend input;
+        display:block;
+        height:200px;
+      }
+    }
+  }
+  img#portrait {
+    clip-path: circle(50% at 50% 50%);
+  }
+  h1,
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+h1 {
+  padding-left: $gutter;
+  font-size: 1.5rem;
+  color: $primaryColor;
+}
+h3 {
+  margin-top: 0;
+}
+
+body {
+  background-color: white;
+}
+
+#cards {
+  section {
+    padding: 1rem;
+    background-color: $secondaryColor;
+    color: $primaryColor;
+    display: grid;
+    margin-bottom: 1.5rem;
+    grid-template-areas:
+      "photo"
+      "location"
+      "address"
+      "phone"
+      "button";
+    img {
+      margin-bottom: 1rem;
+      grid-area: photo;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .infoWrapper {
+      h2 {
+        grid-area: location;
+        margin: 0;
+        padding: 0;
+        font-family: $defaultFont;
+      }
+      address {
+        grid-area: address;
+      }
+      a.tel {
+        grid-area: phone;
+        text-decoration: none;
+        color: $primaryColor;
+        display: block;
+      }
+      a.moreInfo {
+        grid-area: button;
+        text-decoration: none;
+        color: white;
+        background-color: $primaryColor;
+        display: block;
+        margin-top: 1rem;
+        width: 150px;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+//end cards
+
+// footer
+
+div#footerWrapper {
+  background-color: black;
+  color: $secondaryColor;
+  footer {
+    padding: 2rem;
+    div.socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    p.legal {
+      font-weight: $boldWeight;
+      text-align: center;
+      font-size: 1.1rem;
+      color: $secondaryColor;
+    }
+  }
+}

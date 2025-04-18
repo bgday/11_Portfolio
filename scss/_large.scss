@@ -1,0 +1,31 @@
+
+body {
+  display:grid;
+  grid-template-columns: 250px auto;
+}
+
+div#navWrapper {
+  grid-row:1 / span 3;
+
+  nav {
+    position:relative;
+    ul#primaryNav {
+      flex-direction: column;
+      height:100vh;
+      justify-content: center;
+      position:fixed;
+      width:250px;
+      li {
+        flex:none;
+        a {
+          img {
+            display:none;
+          }
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
